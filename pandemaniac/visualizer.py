@@ -88,7 +88,7 @@ def viz(G, seeds,
     for k in result.keys():
         size_map[k] = colored_size
 
-    i_slider = pn.widgets.IntSlider(start=1, end=len(history)-1, value=0,
+    i_slider = pn.widgets.IntSlider(start=1, end=len(history)-1, value=1,
                                     name="iteration", width=400)
     range_slider = pn.widgets.FloatSlider(name='zoom', width=400,
                                       start=0.1, end=1.5, value=0.4, step=0.05)
