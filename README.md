@@ -5,7 +5,7 @@ Here is a demonstration of the TA's demolishing us:
 
 <img src="_imgs/0.png" width=70%>
 
-<img src="_imgs/1.png" width=80%>
+<img src="_imgs/1.png" width=70%>
 
 <img src="_imgs/2.png" width=70%>
 
