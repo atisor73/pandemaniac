@@ -60,11 +60,11 @@ def dataframer(positions):
     return df
 
 
-def epiplotter(G, seeds,
-               palette=["#f49044", "#cb4f70", "#779e1a", "#1b718c"],
-               uncolored_size=2.5,
-               colored_size=4.5
-              ):
+def viz(G, seeds,
+        palette=["#f49044", "#cb4f70", "#779e1a", "#1b718c"],
+        uncolored_size=2.5,
+        colored_size=4.5
+        ):
     """
     Arguments
     -------------------------------------

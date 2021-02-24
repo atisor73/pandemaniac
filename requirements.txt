@@ -1,0 +1,6 @@
+numpy
+pandas
+bokeh >= 1.4.0
+panel
+json
+networkx
