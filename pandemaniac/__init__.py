@@ -1,7 +1,6 @@
 """CS144 Pandemaniac iterative visualizer"""
 
 from .visualizer import *
-from . import sim_viz
 
 __author__ = 'Rosita Fu'
 __email__ = 'rosita.fu99@gmail.com'

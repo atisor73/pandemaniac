@@ -88,19 +88,19 @@ def viz(G, seeds,
     for k in result.keys():
         size_map[k] = colored_size
 
-    i_slider = pn.widgets.IntSlider(start=0, end=len(history)-1, value=0,
+    i_slider = pn.widgets.IntSlider(start=1, end=len(history)-1, value=0,
                                     name="iteration", width=400)
     range_slider = pn.widgets.FloatSlider(name='zoom', width=400,
                                       start=0.1, end=1.5, value=0.4, step=0.05)
     @pn.depends(i_slider.param.value, range_slider.param.value)
     def plotter(i=1, z=1.5):
         df_ = df
-        p = bokeh.plotting.figure(title=f"iteration {i+1}",
+        p = bokeh.plotting.figure(title=f"iteration {i}",
                                   width=600, height=450,
                                   x_range=[-z,z],y_range=[-z, z],  )
 
         # iterating, update color and size of node
-        labels = list(history[i].values())
+        labels = list(history[i-1].values())
         df_["color"] = [color_map[label] for label in labels]
         df_["size"] = [size_map[label] for label in labels]
         df_ = df_.sort_values(by=["size"])

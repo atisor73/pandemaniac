@@ -1,0 +1,15 @@
+Metadata-Version: 2.1
+Name: pandemaniac
+Version: 0.0.1
+Summary: CS144 Pandemaniac iterative visualizer
+Home-page: UNKNOWN
+Author: Rosita Fu
+Author-email: rosita.fu99@gmail.com
+License: UNKNOWN
+Description: # pandemaniac
+        panel plotter for iterations
+        
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: OS Independent
+Description-Content-Type: ext/markdown
