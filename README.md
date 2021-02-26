@@ -3,6 +3,16 @@ CS144 Pandemaniac Project Visualizer!
 
 Here is a demonstration of the TA's demolishing us:
 
+\>>> cd pandemaniac/
+
+\>>> python setup.py install
+
+
+
+\>>> import pandemaniac
+
+\>>> pandemaniac.viz(G, [seed1, seed2, seed3])
+
 <img src="_imgs/0.png" width=70%>
 
 <img src="_imgs/1.png" width=60%>
@@ -10,8 +20,6 @@ Here is a demonstration of the TA's demolishing us:
 <img src="_imgs/2.png" width=60%>
 
 <img src="_imgs/3.png" width=60%>
-
-<img src="_imgs/4.png" width=60%>
 
 
 

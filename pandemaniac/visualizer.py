@@ -1,6 +1,7 @@
 import numpy as np
 import pandas as pd
 
+import iqplot
 import bokeh
 import bokeh.io
 import panel as pn
@@ -88,7 +89,7 @@ def viz(G, seeds,
     for k in result.keys():
         size_map[k] = colored_size
 
-    i_slider = pn.widgets.IntSlider(start=1, end=len(history)-1, value=1,
+    i_slider = pn.widgets.IntSlider(start=1, end=len(history), value=1,
                                     name="iteration", width=400)
     range_slider = pn.widgets.FloatSlider(name='zoom', width=400,
                                       start=0.1, end=1.5, value=0.4, step=0.05)
@@ -116,3 +117,35 @@ def viz(G, seeds,
 
         return style(p)
     return pn.Column(range_slider, i_slider, plotter)
+
+
+
+def ecdf_rank(opponents, my_rank,
+              palette=['#46308d','#2ea58e', '#e97d86', '#7e92bd',
+                       '#cb4f70', '#1b718c', '#779e1a', '#f49044'],
+              x_range=(-100, 1000), title=None
+              ):
+    """
+    Plot ECDF of everyone's nodal choices.
+    Note that this rank might not reflect their method of selection,
+    this is mainly for diagnostic purposes.
+
+    Arguments
+    -------------------------------------
+    opponents : dictionary loaded in from json file
+    my_rank : dictionary of {node : rank}
+
+    Returns
+    -------------------------------------
+    ECDF of selected nodes with control of iterations over 50.
+    """
+    iteration_slider = pn.widgets.IntSlider(start=1, end=len(opponents[0]), value=1, name="iteration")
+    @pn.depends(iteration_slider.param.value)
+    def ecdf_plotter(iteration=1):
+        p = bokeh.plotting.figure(height=300, width=1000, title=title)
+        for a, _ in enumerate(opponents.items()):
+            k, v = _
+            iqplot.ecdf(data=np.array([my_rank[i] for i in v[iteration-1]]),
+                        p=p, style='staircase', palette=[palette[a]],legend_label=k, x_range=x_range)
+        return p
+    return pn.Column(iteration_slider, ecdf_plotter)
