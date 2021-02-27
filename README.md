@@ -1,8 +1,6 @@
 # pandemaniac
 CS144 Pandemaniac Project Visualizer!
 
-Here is a demonstration of the TA's demolishing us:
-
 \>>> `git clone https://github.com/atisor73/pandemaniac`
 
 \>>> ```cd pandemaniac/```
@@ -11,9 +9,13 @@ Here is a demonstration of the TA's demolishing us:
 
 <br>
 
+Here is a demonstration of the TA's demolishing us:
+
 \>>> `import pandemaniac`
 
 \>>> `pandemaniac.viz(G, [seed1, seed2, ... ])`
+
+
 
 <img src="_imgs/0.png" width=70%>
 
