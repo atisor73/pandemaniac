@@ -3,15 +3,15 @@ CS144 Pandemaniac Project Visualizer!
 
 Here is a demonstration of the TA's demolishing us:
 
-\>>> cd pandemaniac/
+\>>> ```cd pandemaniac/```
 
-\>>> python setup.py install
+\>>> ```python setup.py install```
 
 
 
-\>>> import pandemaniac
+\>>> `import pandemaniac`
 
-\>>> pandemaniac.viz(G, [seed1, seed2, seed3])
+\>>> `pandemaniac.viz(G, [seed1, seed2, seed3])`
 
 <img src="_imgs/0.png" width=70%>
 
