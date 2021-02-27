@@ -1,8 +1,0 @@
-"""CS144 Pandemaniac iterative visualizer"""
-
-from .visualizer import *
-
-__author__ = 'Rosita Fu'
-__email__ = 'rosita.fu99@gmail.com'
-__version__ = '0.0.1'
-__license__ = 'GNU'
