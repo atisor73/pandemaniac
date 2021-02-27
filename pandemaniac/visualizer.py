@@ -9,7 +9,8 @@ pn.extension()
 
 import json
 import networkx as nx
-import sim_viz
+from . import sim_viz
+
 
 
 def style(p):
@@ -139,8 +140,8 @@ def ecdf_rank(opponents, my_rank,
 
     Arguments
     -------------------------------------
-    opponents : dictionary loaded in from json file
-    my_rank : dictionary of {node : rank}
+    opponents : dictionary loaded in from json file {team name : list of list of seeds}
+    my_rank : dictionary of {node : rank}, node in graph, and integer rank
 
     Returns
     -------------------------------------

@@ -1,5 +1,5 @@
 # pandemaniac
-CS144 Pandemaniac Project Visualizer!
+CS144 Pandemaniac Visualizer! 10,000 nodes requires lots of patience, but anything smaller works ok.
 
 \>>> `git clone https://github.com/atisor73/pandemaniac`
 
