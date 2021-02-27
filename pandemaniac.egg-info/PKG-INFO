@@ -7,8 +7,43 @@ Author: Rosita Fu
 Author-email: rosita.fu99@gmail.com
 License: UNKNOWN
 Description: # pandemaniac
-        panel plotter for iterations
+        CS144 Pandemaniac Visualizer! 10,000 nodes requires lots of patience, but anything smaller works ok.
         
+        \>>> `git clone https://github.com/atisor73/pandemaniac`
+        
+        \>>> ```cd pandemaniac/```
+        
+        \>>> ```python setup.py install```
+        
+        <br>
+        
+        Here is a demonstration of the TA's demolishing us:
+        
+        \>>> `import pandemaniac`
+        
+        \>>> `pandemaniac.viz(G, [seed1, seed2, ... ])`
+        
+        
+        
+        <img src="_imgs/0.png" width=70%>
+        
+        <img src="_imgs/1.png" width=60%>
+        
+        <img src="_imgs/2.png" width=60%>
+        
+        <img src="_imgs/3.png" width=60%>
+        
+        
+        
+        <img src="_imgs/6.png" width=60%>
+        
+        
+        
+        <img src="_imgs/11.png" width=60%>
+        
+        
+        
+        <img src="_imgs/13.png" width=60%>
 Platform: UNKNOWN
 Classifier: Programming Language :: Python :: 3
 Classifier: Operating System :: OS Independent
