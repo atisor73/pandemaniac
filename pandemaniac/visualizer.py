@@ -62,7 +62,11 @@ def dataframer(positions):
 
 
 def viz(G, seeds,
-        palette=["#f49044", "#cb4f70", "#779e1a", "#1b718c"],
+        palette=['#cb4f70', '#1b718c', '#779e1a', '#f49044',
+                '#46308d', '#2ea58e', '#e97d86', '#7e92bd',
+                '#c21019', '#f56327', '#fab01d', '#026f69',
+                '#750a2b', '#1b9e77', '#d95f02', '#7570b3',
+                '#e7298a', '#66a61e'],
         uncolored_size=2.5,
         colored_size=4.5
         ):
@@ -84,7 +88,7 @@ def viz(G, seeds,
 
     color_map = {k:v for k, v in zip(result.keys(), palette)}
     color_map[None] = "grey"
-
+    print()
     size_map = {None : uncolored_size}
     for k in result.keys():
         size_map[k] = colored_size
@@ -121,9 +125,12 @@ def viz(G, seeds,
 
 
 def ecdf_rank(opponents, my_rank,
-              palette=['#46308d','#2ea58e', '#e97d86', '#7e92bd',
-                       '#cb4f70', '#1b718c', '#779e1a', '#f49044'],
-              x_range=(-100, 1000), title=None
+              palette=['#cb4f70', '#1b718c', '#779e1a', '#f49044',
+                      '#46308d', '#2ea58e', '#e97d86', '#7e92bd',
+                      '#c21019', '#f56327', '#fab01d', '#026f69',
+                      '#750a2b', '#1b9e77', '#d95f02', '#7570b3',
+                      '#e7298a', '#66a61e'],
+              x_range=None, title=None
               ):
     """
     Plot ECDF of everyone's nodal choices.
@@ -139,13 +146,13 @@ def ecdf_rank(opponents, my_rank,
     -------------------------------------
     ECDF of selected nodes with control of iterations over 50.
     """
-    iteration_slider = pn.widgets.IntSlider(start=1, end=len(opponents[0]), value=1, name="iteration")
+    iteration_slider = pn.widgets.IntSlider(start=1, end=50, value=1, name="iteration")
     @pn.depends(iteration_slider.param.value)
     def ecdf_plotter(iteration=1):
-        p = bokeh.plotting.figure(height=300, width=1000, title=title)
+        p = bokeh.plotting.figure(height=400, width=1000, title=title, x_range=x_range)
         for a, _ in enumerate(opponents.items()):
             k, v = _
             iqplot.ecdf(data=np.array([my_rank[i] for i in v[iteration-1]]),
-                        p=p, style='staircase', palette=[palette[a]],legend_label=k, x_range=x_range)
+                        p=p, style='staircase', palette=[palette[a]],legend_label=k)
         return p
     return pn.Column(iteration_slider, ecdf_plotter)
