@@ -1,3 +1,4 @@
 dist/
 pandemaniac.egg-info/
 .DS_Store
+build/lib/pandemaniac
