@@ -69,8 +69,7 @@ def viz(G, seeds,
                 '#750a2b', '#1b9e77', '#d95f02', '#7570b3',
                 '#e7298a', '#66a61e'],
         uncolored_size=2.5,
-        colored_size=4.5,
-        names=None,
+        colored_size=4.5
         ):
     """
     Arguments
@@ -117,14 +116,7 @@ def viz(G, seeds,
                  line_color="white", line_width=0.1)
 
         # creating legend
-        if names==None:
-            items = [(f"team {k}", [p.circle(0,0, color=f"{v}")])
-                                        for k, v in color_map.items()]
-        else: items = [(f"{names[i]}", [p.circle(0,0, color=f"{kv[1]}")])
-                                        for i, kv in enumerate(color_map.items())
-                                        if i < len(seeds)
-                                        ]
-
+        items = [(f"team {k}", [p.circle(0,0, color=f"{v}")]) for k, v in color_map.items()]
         legend = bokeh.models.Legend(items=items, location="center")
         p.add_layout(legend, 'right')
 
@@ -175,8 +167,6 @@ def ecdf_rank(opponents, my_rank,
             d_plot = dict(zip(xs, ys))
             keep_xs = [val for val in xs if val not in others]
             keep_ys = [d_plot[x] for x in keep_xs]
-            p.circle(x=keep_xs, y=keep_ys,
-                fill_alpha=0.0, color=palette[a], size=8,
-                line_width=2.0, legend_label=k)
+            p.circle(x=keep_xs, y=keep_ys, fill_alpha=0.0, color=palette[a], size=8, line_width=2.0)
         return p
     return pn.Column(iteration_slider, ecdf_plotter)
