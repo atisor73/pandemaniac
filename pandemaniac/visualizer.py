@@ -80,6 +80,7 @@ def viz(G, seeds,
     palette : list of strings (hex values or html names)
     uncolored_size : float, size of uncolored glyphs
     colored_size : float, size of colored glyphs
+    names : list of opponent names for legend labels
 
     Returns :
     -------------------------------------
@@ -116,7 +117,8 @@ def viz(G, seeds,
         if names==None:
             items = [(f"team {k}", [p.circle(0,0, color=f"{v}")])
                                         for k, v in color_map.items()]
-        else: items = [(f"{names[i]}", [p.circle(0,0, color=f"{kv[1]}")])
+        else:
+            items = [(f"{list(names)[i]}", [p.circle(0,0, color=f"{kv[1]}")])
                                         for i, kv in enumerate(color_map.items())
                                         if i < len(seeds)
                                         ]

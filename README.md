@@ -1,6 +1,12 @@
 # pandemaniac
 CS144 Pandemaniac Visualizer! 10,000 nodes requires a good deal of patience, 5,000 a moderate amount of patience, and 2,000 a modicum of patience.
 
+````python
+git clone https://github.com/atisor73/pandemaniac
+cd pandemaniac/
+python setup.py install
+````
+
 \>>> `git clone https://github.com/atisor73/pandemaniac`
 
 \>>> ```cd pandemaniac/```
