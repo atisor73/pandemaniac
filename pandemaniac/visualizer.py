@@ -96,8 +96,8 @@ def viz(G, seeds,
         size_map[k] = colored_size
 
     i_slider = pn.widgets.IntSlider(start=1, end=len(history), value=1,
-                                    name="iteration", width=400)
-    range_slider = pn.widgets.FloatSlider(name='zoom', width=400,
+                                    name="iteration", width=370)
+    range_slider = pn.widgets.FloatSlider(name='zoom', width=370,
                                       start=0.1, end=1.5, value=0.4, step=0.05)
     @pn.depends(i_slider.param.value, range_slider.param.value)
     def plotter(i=1, z=1.5):
@@ -112,10 +112,6 @@ def viz(G, seeds,
         df_["size"] = [size_map[label] for label in labels]
         df_ = df_.sort_values(by=["size"])
 
-        # only plotting nodes
-        p.circle(source=df_, x='x',y='y', color='color', size='size',
-                 line_color="white", line_width=0.1)
-
         # creating legend
         if names==None:
             items = [(f"team {k}", [p.circle(0,0, color=f"{v}")])
@@ -124,9 +120,12 @@ def viz(G, seeds,
                                         for i, kv in enumerate(color_map.items())
                                         if i < len(seeds)
                                         ]
-
         legend = bokeh.models.Legend(items=items, location="center")
         p.add_layout(legend, 'right')
+
+        # only plotting nodes
+        p.circle(source=df_, x='x',y='y', color='color', size='size',
+                 line_color="white", line_width=0.1)
 
         return style(p)
     return pn.Column(range_slider, i_slider, plotter)
