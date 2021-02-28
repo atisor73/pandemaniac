@@ -9,30 +9,26 @@ CS144 Pandemaniac Visualizer! 10,000 nodes requires a good deal of patience, 5,0
 
 <br>
 
-Here is a demonstration of the TA's demolishing us:
+Here is a demonstration of a 9-player coloring:
 
 \>>> `import pandemaniac`
 
 \>>> `pandemaniac.viz(G, [seed1, seed2, ... ])`
 
+
+
 <img src="_imgs/readmespeed.gif" width=60%>
 
-<img src="_imgs/0.png" width=70%>
-
-<img src="_imgs/1.png" width=60%>
-
-<img src="_imgs/2.png" width=60%>
-
-<img src="_imgs/3.png" width=60%>
 
 
 
-<img src="_imgs/6.png" width=60%>
 
 
 
-<img src="_imgs/11.png" width=60%>
 
 
 
-<img src="_imgs/13.png" width=60%>
+
+
+
+
