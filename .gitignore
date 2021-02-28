@@ -1,4 +1,6 @@
-dist/
-pandemaniac.egg-info/
-.DS_Store
-build/lib/pandemaniac
+dist/**
+pandemaniac.egg-info/**
+*.obj
+*.lib
+.DS_Store.obj
+build/lib/pandemaniac/**
