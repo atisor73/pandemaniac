@@ -7,19 +7,14 @@ cd pandemaniac/
 python setup.py install
 ````
 
-\>>> `git clone https://github.com/atisor73/pandemaniac`
-
-\>>> ```cd pandemaniac/```
-
-\>>> ```python setup.py install```
-
 <br>
 
 Here is a demonstration of a 9-player coloring:
 
-\>>> `import pandemaniac`
-
-\>>> `pandemaniac.viz(G, [seed1, seed2, ... ])`
+```
+import pandemaniac
+pandemaniac.viz(G, [seed1, seed2, ... ])
+```
 
 
 
