@@ -15,7 +15,7 @@ Here is a demonstration of the TA's demolishing us:
 
 \>>> `pandemaniac.viz(G, [seed1, seed2, ... ])`
 
-<img src="_imgs/readme.gif" width=60%>
+<img src="_imgs/readmespeed.gif" width=60%>
 
 <img src="_imgs/0.png" width=70%>
 
