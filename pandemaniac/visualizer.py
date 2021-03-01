@@ -71,6 +71,7 @@ def viz(G, seeds,
         uncolored_size=2.5,
         colored_size=4.5,
         names=None,
+        layout=None,
         ):
     """
     Arguments
@@ -81,12 +82,20 @@ def viz(G, seeds,
     uncolored_size : float, size of uncolored glyphs
     colored_size : float, size of colored glyphs
     names : list of opponent names for legend labels
-
+    layout : string ("radial", "random", "kamada", "spectral"),
+             default "spring"
+             
     Returns :
     -------------------------------------
     Bokeh panel object displaying color cascade, with iteration and zoom control.
     """
-    df = dataframer(nx.spring_layout(G))
+    if layout == "radial":     layout = nx.circular_layout(G)
+    elif layout == "random":   layout = nx.random_layout(G)
+    elif layout == "kamada":   layout = nx.kamada_kawai_layout(G)
+    elif layout == "spectral": layout = nx.spectral_layout(G)
+    else:                      layout = nx.spring_layout(G)
+
+    df = dataframer(layout)
     result, history = simulate(G, seeds)
 
     color_map = {k:v for k, v in zip(result.keys(), palette)}
@@ -156,7 +165,7 @@ def ecdf_rank(opponents, my_rank,
     -------------------------------------
     ECDF of selected nodes with control of iterations over 50.
     """
-    iteration_slider = pn.widgets.IntSlider(start=1, end=50, value=1, name="iteration")
+    iteration_slider = pn.widgets.IntSlider(start=1, end=50, value=1, name="iteration",width=785)
     @pn.depends(iteration_slider.param.value)
     def ecdf_plotter(iteration=1):
         p = bokeh.plotting.figure(height=400, width=1000, title=title, x_range=x_range)
