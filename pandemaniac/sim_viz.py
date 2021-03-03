@@ -1,4 +1,4 @@
-"""
+'''
 The following was modified by r0s1ta fu.
 03-01-2020
 github.com/atisor73
@@ -15,8 +15,8 @@ github.com/atisor73
                    `.                            .'
                      `-._                   _.-'
                          `"'--...___...--'"`'
-         */
-"""
+
+'''
 
 '''
     The MIT License (MIT)
