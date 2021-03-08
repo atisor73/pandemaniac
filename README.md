@@ -1,3 +1,4 @@
+
 # pandemaniac
 CS144 Pandemaniac Visualizer! 10,000 nodes requires a good deal of patience, 5,000 a moderate amount of patience, and 2,000 a modicum of patience.
 
@@ -18,7 +19,7 @@ pandemaniac.viz(G, [seed1, seed2, ... ])
 
 
 
-<img src="_imgs/readmespeed.gif" width=60%>
+<img src="_imgs/patrol.gif" width=60%>
 
 
 
