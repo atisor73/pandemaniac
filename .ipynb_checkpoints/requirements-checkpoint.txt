@@ -1,6 +1,0 @@
-numpy
-pandas
-bokeh >= 1.4.0
-panel >= 0.12
-networkx
-iqplot
