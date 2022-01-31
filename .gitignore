@@ -4,3 +4,6 @@ pandemaniac.egg-info/**
 *.lib
 .DS_Store.obj
 build/lib/pandemaniac/**
+.ipynb_checkpoints
+.DS_Store
+.eggs/**
