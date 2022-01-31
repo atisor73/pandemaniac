@@ -1,6 +1,6 @@
 numpy
 pandas
-bokeh >= 2.3.2
-panel
+bokeh >= 1.4.0
+panel >= 0.12
 networkx
 iqplot
