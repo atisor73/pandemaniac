@@ -1,0 +1,6 @@
+numpy
+pandas
+bokeh >= 2.3.2
+panel
+networkx
+iqplot
