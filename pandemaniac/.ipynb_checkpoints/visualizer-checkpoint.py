@@ -12,6 +12,7 @@ import networkx as nx
 from . import sim_viz
 
 
+
 def style(p):
     p.title.text_font="Helvetica"
     p.title.text_font_size="16px"
@@ -81,7 +82,7 @@ def viz(G, seeds,
     uncolored_size : float, size of uncolored glyphs
     colored_size : float, size of colored glyphs
     names : list of opponent names for legend labels
-    layout : string ("radial", "random", "kamada", "spectral", "spring"),
+    layout : string ("radial", "random", "kamada", "spectral"),
              default "spring"
              
     Returns :
@@ -107,12 +108,13 @@ def viz(G, seeds,
     i_slider = pn.widgets.IntSlider(start=1, end=len(history), value=1,
                                     name="iteration", width=370)
     range_slider = pn.widgets.FloatSlider(name='zoom', width=370,
-                                      start=0.1, end=1.5, value=0.4, step=0.05)
+                                      start=0.10, end=2.0, value=1.1, step=0.05)
     @pn.depends(i_slider.param.value, range_slider.param.value)
-    def plotter(i=1, z=1.5):
+    def plotter(i, z):
+        z = 2.05 - z
         df_ = df
         p = bokeh.plotting.figure(title=f"iteration {i}",
-                                  width=700, height=550,
+                                  width=600, height=450,
                                   x_range=[-z,z],y_range=[-z, z],  )
 
         # iterating, update color and size of node
