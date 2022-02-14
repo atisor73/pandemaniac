@@ -1,7 +1,11 @@
 import numpy as np
 import pandas as pd
 
-import iqplot
+try:
+    import iqplot
+except:
+    pass
+    
 import bokeh
 import bokeh.io
 import panel as pn
@@ -84,7 +88,7 @@ def viz(G, seeds,
     names : list of opponent names for legend labels
     layout : string ("radial", "random", "kamada", "spectral"),
              default "spring"
-             
+
     Returns :
     -------------------------------------
     Bokeh panel object displaying color cascade, with iteration and zoom control.
