@@ -195,6 +195,9 @@ def viz_tournament(G, players,
         results.append(result)
         histories.append(history)
     
+    
+    # ****************** PLOTTING ******************
+    print("plotting... ")
     color_map = {k:v for k, v in zip(result.keys(), palette)}
     color_map[None] = "grey"
     print()

@@ -2,7 +2,7 @@ import setuptools
 
 setuptools.setup(
     name='pandemaniac',
-    version='1.0.1',
+    version='1.0.2',
     author='Rosita Fu',
     author_email='rosita.fu99@gmail.com',
     url="https://github.com/atisor73/pandemaniac",
