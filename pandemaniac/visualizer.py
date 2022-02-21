@@ -5,7 +5,7 @@ try:
     import iqplot
 except:
     pass
-    
+
 import bokeh
 import bokeh.io
 import panel as pn
@@ -129,10 +129,10 @@ def viz(G, seeds,
 
         # creating legend
         if names==None:
-            items = [(f"team {k}", [p.circle(0,0, color=f"{v}")])
+            items = [(f"team {k}", [p.circle(0,0, alpha=0, color=f"{v}")])
                                         for k, v in color_map.items()]
         else:
-            items = [(f"{list(names)[i]}", [p.circle(0,0, color=f"{kv[1]}")])
+            items = [(f"{list(names)[i]}", [p.circle(0,0, alpha=0, color=f"{kv[1]}")])
                                         for i, kv in enumerate(color_map.items())
                                         if i < len(seeds)
                                         ]
@@ -181,12 +181,12 @@ def viz_tournament(G, players,
     else:                      layout = nx.spring_layout(G)
 
     df = dataframer(layout)
-    
+
     # ********* SIMULATING 50 CYCLES LAYOUT *********
     print("simulating... ")
     names = list(players.keys())
     all_seeds = list(players.values())
-    
+
     N_CYCLES = 50
     results, histories = [], []
     for cycle in range(N_CYCLES):
@@ -194,8 +194,8 @@ def viz_tournament(G, players,
         result, history = simulate(G, seeds)
         results.append(result)
         histories.append(history)
-    
-    
+
+
     # ****************** PLOTTING ******************
     print("plotting... ")
     color_map = {k:v for k, v in zip(result.keys(), palette)}
@@ -211,11 +211,11 @@ def viz_tournament(G, players,
                                     name="iteration", width=290)
     range_slider = pn.widgets.FloatSlider(name='zoom', width=400,
                                       start=0.10, end=2.0, value=1.1, step=0.05)
-    
+
     @pn.depends(cycle_selector.param.value, watch=True)
     def update_i_end(cycle):
         i_slider.end = len(histories[cycle])
-        
+
     @pn.depends(cycle_selector.param.value, i_slider.param.value, range_slider.param.value)
     def plotter(cycle, i, z):
         result, history = results[cycle], histories[cycle]
@@ -224,10 +224,10 @@ def viz_tournament(G, players,
         p = bokeh.plotting.figure(title=f"iteration {i}",
                                   width=600, height=450,
                                   x_range=[-z,z],y_range=[-z, z],  )
-        
+
         max_i = len(history)-1
-        _index = max_i if i > max_i else i-1 
-        
+        _index = max_i if i > max_i else i-1
+
         # iterating, update color and size of node
         labels = list(history[_index].values())
         df_["color"] = [color_map[label] for label in labels]
@@ -236,10 +236,10 @@ def viz_tournament(G, players,
 
         # creating legend
         if names==None:
-            items = [(f"team {k}", [p.circle(0,0, color=f"{v}")])
+            items = [(f"team {k}", [p.circle(0,0, alpha=0, color=f"{v}")])
                                         for k, v in color_map.items()]
         else:
-            items = [(f"{list(names)[i]}", [p.circle(0,0, color=f"{kv[1]}")])
+            items = [(f"{list(names)[i]}", [p.circle(0,0, alpha=0, color=f"{kv[1]}")])
                                         for i, kv in enumerate(color_map.items())
                                         if i < len(seeds)
                                         ]
