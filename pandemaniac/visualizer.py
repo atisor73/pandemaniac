@@ -129,10 +129,12 @@ def viz(G, seeds,
 
         # creating legend
         if names==None:
-            items = [(f"team {k}", [p.circle(0,0, alpha=0, color=f"{v}")])
+            items = [(f"team {k}", [p.circle(df_.loc[df_["color"]==v]['x'].values[0],
+                                                    df_.loc[df_["color"]==v]['y'].values[0], color=f"{v}")])
                                         for k, v in color_map.items()]
         else:
-            items = [(f"{list(names)[i]}", [p.circle(0,0, alpha=0, color=f"{kv[1]}")])
+            items = [(f"{list(names)[i]}", [p.circle(df_.loc[df_["color"]==kv[1]]['x'].values[0],
+                                                    df_.loc[df_["color"]==kv[1]]['y'].values[0], color=f"{kv[1]}")])
                                         for i, kv in enumerate(color_map.items())
                                         if i < len(seeds)
                                         ]
@@ -236,10 +238,12 @@ def viz_tournament(G, players,
 
         # creating legend
         if names==None:
-            items = [(f"team {k}", [p.circle(0,0, alpha=0, color=f"{v}")])
+            items = [(f"team {k}", [p.circle(df_.loc[df_["color"]==v]['x'].values[0],
+                                            df_.loc[df_["color"]==v]['y'].values[0],  color=f"{v}")])
                                         for k, v in color_map.items()]
         else:
-            items = [(f"{list(names)[i]}", [p.circle(0,0, alpha=0, color=f"{kv[1]}")])
+            items = [(f"{list(names)[i]}", [p.circle(df_.loc[df_["color"]==kv[1]]['x'].values[0],
+                                                    df_.loc[df_["color"]==kv[1]]['x'].values[0], color=f"{kv[1]}")])
                                         for i, kv in enumerate(color_map.items())
                                         if i < len(seeds)
                                         ]
